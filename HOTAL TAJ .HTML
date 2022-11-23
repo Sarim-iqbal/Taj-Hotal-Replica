@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOTAL TAJ</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+</head>
+
+<style>
+    .nav{
+        
+        display: grid;
+        grid-column: 12;
+    }
+    .card{
+        margin: 50px;
+        margin-left: 400px;
+        
+    }
+    
+    h2,h5,h6{
+        text-align: center;
+    }
+    body{
+        background-color: rgb(241, 249, 252);
+    }
+    
+    
+</style>
+
+<script>
+  function OrderSummary(){
+    document.getElementById("lblName").innerHTML=documet.getElementById("txtName").value;
+    document.getElementById("lblDate").innerHTML=document.getElementById("txtDate").value;
+    document.getElementById("lbldays").innerHTML=document.getElementById("txtdays").value;
+    document.getElementById("ibiPerson").innerHTML=document.getElementById("txtPerson").value;
+    document.getElementById("lblAdvance").innerHTML=Document.getElementById("txtAdvance").value;
+
+    var roomName = "";
+    var roomCost = 0;
+    var amienitiesCost = 0;
+    var advance = 0;
+    var days = 0;
+    var person = 0;
+    var extra = 0;
+
+    deluxRadio = document.getElementById("optDelux");
+    suiteRadio = document.getElementById("optSuite");
+
+    if(deluxRadio.checked){
+      roomName = deluxRadio.value;
+      roomCost = 2500;
+
+    }
+    if(suiteRadio.checked){
+      roomName = suitRadio.value;
+      roomCOst = 4000;
+
+    }
+
+    acCheckbox = document.getElementById("optAc");
+    safeCheckbox = document.getElementById("optSafe");
+
+    if(safeCheckbox.checked){
+      amenitiesName + amenitiesCost;
+    }
+    day = document.getElementById("txtDays").value;
+    person = document.getElementById("txtPerson").value;
+
+
+    if(days==1 && person<=2){
+      roomCost = 0;
+    }else if(days==1 && person>2){
+      extra = person - 2;
+      roomCost = roomCost + (extra*1000);
+    }else if (days>1 && person>2){
+    extra = person - 2;
+    roomCost = (days*roomCost) + (extra*1000);
+
+    }
+    var advance = document.getElementById("txtAdvance").value;
+
+    var total = roomCost - advance;
+
+    document.getElementById("lblRoom").innerHTML = roomName;
+    document.getElementById("lblAmenities").innerHTML = ameniteisName;
+    document.getElementById("lbldays").innerHTML = days;
+    document.getElementById("lblPerson").innerHTML = person;
+    document.getElementById("lblAdvance").innerHTML = advance;
+    document.getEmenentById("lblTotal").innerHTML = `&#8377(total)`
+  }
+</script>
+
+<body>
+    <div class="nav"><nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="#"><img src="logo taj.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Our Hotals</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Taj Holyday</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Gift Card</a></li>
+                  <li><a class="dropdown-item" href="#">Wedding garden</a></li>
+                  <li><a class="dropdown-item" href="#">Party</a></li>
+                  <li><a class="dropdown-item" href="#">Food</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+              </li>
+            </ul>
+          
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Book Ur Stay
+            </button>
+
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-3" id="staticBackdropLabel" style="margin-left: 100px; font-family: Arial;">BOOK YOUR STAY</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    
+
+                    <form class="row g-1">
+                      <div class="col-md-12">
+                         <label for="inputName" class="form-label"> Customer Name </label>
+                        <input type="text" class="form-control" id="textName">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="inputDate" class="form-label">Check In Date </label>
+                        <input type="datetime" class="form-control" id="datetimeCheckin">
+                      </div>
+                      <div class="col-6">
+                        <label for="inputNoOfDays" class="form-label">Total No Of Days</label>
+                        <input type="number" class="form-control" id="noOfDays" placeholder="0">
+                      </div>
+                      <div class="col-6">
+                        <label for="inputNumberOfPersons" class="form-label">Total Number Of Persons</label>
+                        <input type="text" class="form-control" id="noOfPersons" placeholder="0">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="inputRoomType" class="form-label">Selected Room Type</label>
+                        <input type="text" class="form-control" id="TextRoomType" value="0">
+                      </div>
+                      
+                      <div class="col-md-6">
+                        <label for="inputRoomType" class="form-label">Select Amenities</label>
+                        <input type="text" class="form-control" id="inputTextAmenities">
+                      </div>
+
+                      <div class="col-md-4">
+                        <label for="inputAmount" class="form-label">Advance</label>
+                        <input type="number" class="form-control" id="inputAmountAdvance">
+                      </div>
+                      <div class="col-md-12">
+                        <label for="input" class="form-label">Total</label>
+                        <input type="number" class="form-control" id="input">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Book</button>
+                      </div>
+                      </label>
+                      </div>
+                      </div>
+                     
+                    </form> 
+                    
+                    
+
+
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+            
+
+
+
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--carousel taj over view -->
+    <div class="header"><div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="TAJ HOTEL.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="TAJ HOATAL.png" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="TAJ HOTAL KOLKATA NEWTOWN .png" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!--Body about Taj-->
+    <div class="body">
+        <header font-style="bold" text-align="center"><h2>About Taj</h2></header>
+        <p m30>A curation of authentic living palaces, landmark hotels, resorts and safaris, Taj is the hallmark of iconic hospitality across the globe. The brand is recognised for its warm and intuitive service and is the undisputed leader in Indian hospitality.
+        </p>
+        <div class="card" style="width: 700px; height: 520px;">
+        <img src="taj body about pic 1.png" > 
+        <h5 font-style="bold">Taj Hotals</h5>
+            <p>Experience a haven of luxury and comfort, ideally located in the middle of bustling cities.</p>
+            <a href="#" class="btn btn-danger" >VIEW DETAILS</a>
+    </div>
+
+    <div class="card" style="width: 700px; height: 520px;">
+    <img src="taj body about pic 2.png" >
+    <h5 font-style="bold">Taj Palaces</h5>
+    <p>Experience India’s majestic old-world charm and rich tradition in stunningly restored living palaces.</p> 
+    <a href="#" class="btn btn-danger">VIEW DETAILS</a>    
+    </div>
+
+    <div class="card" style="width: 700px; height: 520px;">
+        <img src="taj body about pic 3 .png" >
+        <h5 font-style="bold">Taj Resorts</h5>
+        <p>Experience absolute tranquility and luxury, surrounded by mesmerising views.</p>
+        <a href="#" class="btn btn-danger">VIEW DETAILS</a>
+    </div>
+
+    <div class="card" style="width: 700px;" height="530px">
+    <img src="taj body about pic 4.png" >
+    <h5 font-style="bold">Taj safaris</h5>
+    <p>Experience the thrill of exotic wilderness in five hotspots and embark on an adventure of a lifetime.</p>
+    <a href="#" class="btn btn-danger">VIEW DETAILS</a>
+    </div>
+
+    <div class="mapTaj">
+        <h2> Locate Our Hotesl</h2>
+        <h6 >WORLD IS OUR HOME</h6>
+        <a href="https://www.google.com/maps/search/taj+hotels+all+over+world/@17.3873853,78.4396703,12z/data=!3m1!4b1?hl=en-US"><img src="taj map.png" width="1200px" height="300px" style="margin-left: 50px;"></a>
+        
+    </div>
+    <div class="card" style="width: 700px;height: 720px;">
+    <img src="taj body about pic 5.png" >
+    <h5 font-style="bold">Unique Dining</h5>
+    <p>Taj presents fine dining in mesmerising settings, with delectable menus and personalised service.
+    </p>
+    <a href="#" class="btn btn-danger">VIEW DETAILS</a>
+   </div>
+
+<span>
+    <h2>At Taj This Month</h2>
+    <div class="card" style="width: 500px; height: 460px;">
+    <img src="taj body about pic 6.png">
+   <span> <h5>Taj Aravali Resort & spa,Udaipur</h5>
+    <p style="margin-left: 20px;">Taj Aravali Resort & Spa, is located <br> in Udaipur, also known as the ‘City <br> of Lakes,’ in the Indian state of <br> Rajasthan.</p>   
+    <a href="#" class="btn btn-danger">VIEW DETAILS</a></span>
+    </div>
+    <div class="card" style="width:500px; height: 530px;">
+    <img src="taj body about pic 7.png">
+    <h5>Taj Connenara,Chennai</h5>
+    <span><p style="margin-left: 20px;">Chennai’s first and only luxury <br> heritage hotel recognized for its <br> rich history and colonial elegance. <br> An address right in the heart of the <br> city with easy access to shopping, <br> entertainment and business <br> districts.</p>
+        <a href="#" class="btn btn-danger">VIEW DETAILS</a></span>
+    </div>
+</span>
+  <div class="footer">
+    <img src="taj footer main img.png" >
+  </div>
+</body>
+</html>
